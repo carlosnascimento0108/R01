@@ -14,7 +14,31 @@ public class BidirectionalBubbleSort<T extends Comparable<T>> extends
 
 	@Override
 	public void sort(T[] array, int leftIndex, int rightIndex) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not Implemented yet!");
+		boolean swapped = true;
+					
+		if (leftIndex >=0 && rightIndex >= 0 && leftIndex < rightIndex) {
+		while (swapped) {
+			swapped = false;
+			for (int i = leftIndex; i < rightIndex; i++) {
+				if (array[i].compareTo(array[i+1]) > 0) {
+					T swap = array[i];
+					array[i] = array[i+1];
+					array[i+1] = swap;
+					swapped = true;
+
+				}
+			}
+			
+			for (int i = rightIndex; i > leftIndex; i--) {
+				if (array[i].compareTo(array[i-1]) < 0) {
+					T swap = array[i];
+					array[i] = array[i-1];
+					array[i-1] = swap;
+					swapped = true;
+				}
+			}
+
+		}
+	}
 	}
 }
